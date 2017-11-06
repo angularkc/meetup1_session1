@@ -17,7 +17,7 @@ import { TodoComponent } from './todo/todo.component';
     HttpClientModule,
     NgbModule.forRoot()
   ],
-  providers: [TodoService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
