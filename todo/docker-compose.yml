@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  todoapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: todoapp
+    restart: always
+    ports:
+      - 4200:80
+    networks:
+      - todonetwork
+
+  resource:
+    container_name: resource
+    image: resource
+    restart: always
+    ports:
+      - 3000:80
+    networks:
+      - todonetwork
+
+  proxy:
+    container_name: reverseproxy
+    image: proxy
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - todonetwork
+
+networks:
+  todonetwork:
