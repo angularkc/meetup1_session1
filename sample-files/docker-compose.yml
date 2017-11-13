@@ -1,19 +1,25 @@
 version: '3'
  
 services:
-  proxy:
-    build: .
-    container_name: proxy
-    ports: ["80"]
+  todoapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: todoapp
     restart: always
-    networks: ["todo_network"]
-#    external_links:
-#      - resource
-#      - todo-server
-  todo-server:
+    networks:
+      - todo-network
+#  proxy:
+#    build: .
+#    container_name: proxy
+#    ports: ["80"]
+#    restart: always
+#    networks:
+#      - todo-network
+#  todoapp:
 
 
 networks:
-  todo_network:
+  todo-network:
 #    external:
 #      name: todo_network

@@ -2,13 +2,9 @@ version: '3'
 
 services:
   todoapp:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: todoapp
+    container_name: todoapp
+    build: .
     restart: always
-    ports:
-      - 4200:80
     networks:
       - todonetwork
 
@@ -16,8 +12,6 @@ services:
     container_name: resource
     image: resource
     restart: always
-    ports:
-      - 3000:80
     networks:
       - todonetwork
 
