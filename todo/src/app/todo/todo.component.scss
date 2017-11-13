@@ -1,0 +1,11 @@
+.todo-item-div {
+    padding: 5px 30px;
+    
+    input {
+        cursor: pointer;
+    }
+    
+    &:hover {
+        background: #DDDDDD;
+    }
+}
