@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  todoapp:
+    container_name: todoapp
+    build: .
+    restart: always
+    networks:
+      - todonetwork
+
+  resource:
+    container_name: resource
+    image: resource
+    restart: always
+    networks:
+      - todonetwork
+
+  proxy:
+    container_name: reverseproxy
+    image: proxy
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - todonetwork
+
+networks:
+  todonetwork:
